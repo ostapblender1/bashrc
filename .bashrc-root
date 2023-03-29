@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+GREEN="\[$(tput setaf 2)\]"
+RED="\[$(tput setaf 1)\]"
+RESET="\[$(tput sgr0)\]"
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -50,7 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
+    PS1='\[\033[1;31m\]\u\[\033[1;33m\]@\[\033[1;31m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -94,9 +98,9 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi
 
 
 # Permanent env Variable
